@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Biblioteca.educacao</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../../index.html" class="navbar-brand"><b>Biblioteca</b></a><span class="navbar-brand" style="padding-left: 0">.educacao</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>atualiza_id()</h1><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Parameters</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Mode</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>IN</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-code-o"></i>
+                            <h3 id="RoutineDefinition" class="box-title">Definition</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">BEGIN&#10;    --- Estabelecimentos&#10;    UPDATE educacao.convenios c&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; c.estabelecimento_origem_id AND c.id_cloud IS NULL;&#10;    UPDATE educacao.equipamentos eqp&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; eqp.estabelecimento_origem_id AND eqp.id_cloud IS NULL;&#10;    UPDATE educacao.linguas_indigenas li&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; li.estabelecimento_origem_id AND li.id_cloud IS NULL;&#10;    UPDATE educacao.calendarios_estabelecimentos ce&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ce.estabelecimento_origem_id AND ce.id_cloud IS NULL;&#10;    UPDATE educacao.configuracao_lista_espera_estabelecimentos clee&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; clee.estabelecimento_origem_id AND clee.id_cloud IS NULL;&#10;    UPDATE educacao.dependencias_fisicas df&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; df.estabelecimento_origem_id AND df.id_cloud IS NULL;&#10;    UPDATE educacao.documentos_estabelecimentos de&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; de.estabelecimento_origem_id AND de.id_cloud IS NULL;&#10;    UPDATE educacao.estabelecimento_avaliacoes_externas eae&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; eae.estabelecimento_origem_id AND eae.id_cloud IS NULL;&#10;    UPDATE educacao.matricula_convenios mc&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; mc.estabelecimento_origem_id AND mc.id_cloud IS NULL;&#10;    UPDATE educacao.calendarios_matrizes_curriculares cmc&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; cmc.estabelecimento_origem_id AND cmc.id_cloud IS NULL;&#10;    UPDATE educacao.quadro_vagas qv&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; qv.estabelecimento_origem_id AND qv.id_cloud IS NULL;&#10;    UPDATE educacao.turmas t&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; t.estabelecimento_origem_id AND t.id_cloud IS NULL;&#10;    UPDATE educacao.turmas_eja_modular tem&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; tem.estabelecimento_origem_id AND tem.id_cloud IS NULL;&#10;    UPDATE educacao.aulas_quadros_de_horarios aqh&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; aqh.estabelecimento_origem_id AND aqh.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas m&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; m.estabelecimento_origem_id AND m.id_cloud IS NULL;&#10;    UPDATE educacao.enturmacoes ent&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ent.estabelecimento_origem_id AND ent.id_cloud IS NULL;&#10;    UPDATE educacao.acompanhamentos_pedagogicos ap&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ap.estabelecimento_origem_id AND ap.id_cloud IS NULL;&#10;    UPDATE educacao.historicos_escolares he&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; he.estabelecimento_origem_id AND he.id_cloud IS NULL;&#10;    UPDATE educacao.instrumentos_avaliacoes ia&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ia.estabelecimento_origem_id AND ia.id_cloud IS NULL;&#10;    UPDATE educacao.locais_trabalho_matriculas ltm&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ltm.estabelecimento_origem_id AND ltm.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas_eja_modular mem&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; mem.estabelecimento_origem_id AND mem.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas_movimentacao mm&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; mm.estabelecimento_origem_id AND mm.id_cloud IS NULL;&#10;    UPDATE educacao.registros_avaliacoes ra&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ra.estabelecimento_origem_id AND ra.id_cloud IS NULL;&#10;    UPDATE educacao.registros_faltas rf&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; rf.estabelecimento_origem_id AND rf.id_cloud IS NULL;&#10;    UPDATE educacao.encerramentos enc&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; enc.estabelecimento_origem_id AND enc.id_cloud IS NULL;&#10;    UPDATE educacao.tipos_avaliacoes_turmas tat&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; tat.estabelecimento_origem_id AND tat.id_cloud IS NULL;&#10;    UPDATE educacao.disciplinas_eja_modular dem&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; dem.estabelecimento_origem_id AND dem.id_cloud IS NULL;&#10;    UPDATE educacao.disponibilidades d&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; d.estabelecimento_origem_id AND d.id_cloud IS NULL;&#10;    UPDATE educacao.enturmacoes_funcionarios ef&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ef.estabelecimento_origem_id AND ef.id_cloud IS NULL;&#10;    UPDATE educacao.equipes_diretivas ed&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; ed.estabelecimento_origem_id AND ed.id_cloud IS NULL;&#10;    UPDATE educacao.quadros_de_horarios qh&#10;    SET estabelecimento_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estabelecimentos e&#10;    WHERE e.id_origem &#61; qh.estabelecimento_origem_id AND qh.id_cloud IS NULL;&#10;    --- Ano Letivo&#10;    UPDATE educacao.calendarios_excecoes ce&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ce.ano_letivo_origem_id AND ce.id_cloud IS NULL;&#10;    UPDATE educacao.calendarios_secretarias cs&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; cs.ano_letivo_origem_id AND cs.id_cloud IS NULL;&#10;    UPDATE educacao.calendarios_estabelecimentos ce&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ce.ano_letivo_origem_id AND ce.id_cloud IS NULL;&#10;    UPDATE educacao.configuracoes_lista_espera cle&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; cle.ano_letivo_origem_id AND cle.id_cloud IS NULL;&#10;    UPDATE educacao.calendarios_matrizes_curriculares cmc&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; cmc.ano_letivo_origem_id AND cmc.id_cloud IS NULL;&#10;    UPDATE educacao.quadro_vagas qv&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; qv.ano_letivo_origem_id AND qv.id_cloud IS NULL;&#10;    UPDATE educacao.turmas t&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; t.ano_letivo_origem_id AND t.id_cloud IS NULL;&#10;    UPDATE educacao.turmas_eja_modular tem&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; tem.ano_letivo_origem_id AND tem.id_cloud IS NULL;&#10;    UPDATE educacao.aulas_quadros_de_horarios aqh&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; aqh.ano_letivo_origem_id AND aqh.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas m&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; m.ano_letivo_origem_id AND m.id_cloud IS NULL;&#10;    UPDATE educacao.enturmacoes e&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; e.ano_letivo_origem_id AND e.id_cloud IS NULL;&#10;    UPDATE educacao.acompanhamentos_pedagogicos ap&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ap.ano_letivo_origem_id AND ap.id_cloud IS NULL;&#10;    UPDATE educacao.inscricoes_lista_espera ile&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ile.ano_letivo_origem_id AND ile.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas_eja_modular mem&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; mem.ano_letivo_origem_id AND mem.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas_movimentacao mm&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; mm.ano_letivo_origem_id AND mm.id_cloud IS NULL;&#10;    UPDATE educacao.registros_avaliacoes ra&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ra.ano_letivo_origem_id AND ra.id_cloud IS NULL;&#10;    UPDATE educacao.registros_faltas rf&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; rf.ano_letivo_origem_id AND rf.id_cloud IS NULL;&#10;    UPDATE educacao.encerramentos e&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; e.ano_letivo_origem_id AND e.id_cloud IS NULL;&#10;    UPDATE educacao.tipos_avaliacoes_turmas tat&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; tat.ano_letivo_origem_id AND tat.id_cloud IS NULL;&#10;    UPDATE educacao.disciplinas_eja_modular dem&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; dem.ano_letivo_origem_id AND dem.id_cloud IS NULL;&#10;    UPDATE educacao.disponibilidades d&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; d.ano_letivo_origem_id AND d.id_cloud IS NULL;&#10;    UPDATE educacao.encaminhamentos_lista_espera ele&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ele.ano_letivo_origem_id AND ele.id_cloud IS NULL;&#10;    UPDATE educacao.enturmacoes_funcionarios ef&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; ef.ano_letivo_origem_id AND ef.id_cloud IS NULL;&#10;    UPDATE educacao.quadros_de_horarios qh&#10;    SET ano_letivo_cloud_id &#61; al.id_cloud&#10;    FROM educacao.anos_letivos al&#10;    WHERE al.id_origem &#61; qh.ano_letivo_origem_id AND qh.id_cloud IS NULL;&#10;    --- Alunos&#10;    UPDATE educacao.campos_adicionais_alunos caa&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; caa.aluno_origem_id AND caa.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas m&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; m.aluno_origem_id AND m.id_cloud IS NULL;&#10;    UPDATE educacao.historicos_escolares he&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; he.aluno_origem_id AND he.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas_eja_modular mem&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; mem.aluno_origem_id AND mem.id_cloud IS NULL;&#10;    UPDATE educacao.matriculas_movimentacao mm&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; mm.aluno_origem_id AND mm.id_cloud IS NULL;&#10;    UPDATE educacao.observacoes_alunos oa&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; oa.aluno_origem_id AND oa.id_cloud IS NULL;&#10;    UPDATE educacao.observacoes_alunos oa&#10;    SET aluno_cloud_id &#61; a.id_cloud&#10;    FROM educacao.alunos a&#10;    WHERE a.id_origem &#61; oa.aluno_origem_id AND oa.id_cloud IS NULL;&#10;    --- Estados&#10;    UPDATE educacao.municipios m&#10;    SET estado_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estados e&#10;    WHERE e.id_origem &#61; m.estado_origem_id AND m.id_cloud IS NULL;&#10;    UPDATE educacao.cartorios c&#10;    SET estado_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estados e&#10;    WHERE e.id_origem &#61; c.estado_origem_id AND c.id_cloud IS NULL;&#10;    UPDATE educacao.enderecos ende&#10;    SET estado_cloud_id &#61; e.id_cloud&#10;    FROM educacao.estados e&#10;    WHERE e.id_origem &#61; ende.estado_origem_id AND ende.id_cloud IS NULL;&#10;    --- Municipios&#10;    UPDATE educacao.bairros b&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; b.municipio_origem_id AND b.id_cloud IS NULL;&#10;    UPDATE educacao.cartorios c&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; c.municipio_origem_id AND c.id_cloud IS NULL;&#10;    UPDATE educacao.distritos_inep di&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; di.municipio_origem_id AND di.id_cloud IS NULL;&#10;    UPDATE educacao.distritos_inep di&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; di.municipio_origem_id AND di.id_cloud IS NULL;&#10;    UPDATE educacao.enderecos e&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; e.municipio_origem_id AND e.id_cloud IS NULL;&#10;    UPDATE educacao.instituicoes_ensino_superior_inep iesi&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; iesi.municipio_origem_id AND iesi.id_cloud IS NULL;&#10;    UPDATE educacao.historicos_escolares he&#10;    SET municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; he.municipio_origem_id AND he.id_cloud IS NULL;&#10;    UPDATE educacao.pessoas p&#10;    SET municipio_nascimento_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; p.municipio_nascimento_origem_id AND p.id_cloud IS NULL;&#10;    UPDATE educacao.filiacoes f&#10;    SET municipio_nascimento_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; f.municipio_nascimento_origem_id AND f.id_cloud IS NULL;&#10;    UPDATE educacao.funcionarios f&#10;    SET municipio_certidao_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; f.municipio_certidao_origem_id AND f.id_cloud IS NULL;&#10;    UPDATE educacao.funcionarios f&#10;    SET municipio_nascimento_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; f.municipio_nascimento_origem_id AND f.id_cloud IS NULL;&#10;    UPDATE educacao.responsaveis r&#10;    SET municipio_nascimento_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; r.municipio_nascimento_origem_id AND r.id_cloud IS NULL;&#10;    UPDATE educacao.alunos a&#10;    SET municipio_certidao_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; a.municipio_certidao_origem_id AND a.id_cloud IS NULL;&#10;    UPDATE educacao.alunos a&#10;    SET municipio_nascimento_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; a.municipio_nascimento_origem_id AND a.id_cloud IS NULL;&#10;    UPDATE educacao.inscricoes_lista_espera ile&#10;    SET municipio_certidao_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; ile.municipio_certidao_origem_id AND ile.id_cloud IS NULL;&#10;    UPDATE educacao.inscricoes_lista_espera ile&#10;    SET municipio_nascimento_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; ile.municipio_nascimento_origem_id AND ile.id_cloud IS NULL;&#10;    UPDATE educacao.inscricoes_lista_espera ile&#10;    SET endereco_municipio_cloud_id &#61; m.id_cloud&#10;    FROM educacao.municipios m&#10;    WHERE m.id_origem &#61; ile.endereco_municipio_origem_id AND ile.id_cloud IS NULL;&#10;    --- Bairros Não há relacionamento&#10;    --- Pais&#10;    UPDATE educacao.estados e&#10;    SET pais_cloud_id &#61; p.id_cloud&#10;    FROM educacao.paises p&#10;    WHERE p.id_origem &#61; e.pais_origem_id AND e.id_cloud IS NULL;&#10;    --- Cursos&#10;    UPDATE educacao.campos_adicionais_cursos cac&#10;    SET curso_cloud_id &#61; c.id_cloud&#10;    FROM educacao.cursos c&#10;    WHERE c.id_origem &#61; cac.curso_origem_id AND cac.id_cloud IS NULL;&#10;    UPDATE educacao.matrizes_curriculares mc&#10;    SET curso_cloud_id &#61; c.id_cloud&#10;    FROM educacao.cursos c&#10;    WHERE c.id_origem &#61; mc.curso_origem_id AND mc.id_cloud IS NULL;&#10;    --- Disciplinas&#10;    UPDATE educacao.campos_adicionais_disciplinas cad&#10;    SET curso_cloud_id &#61; d.id_cloud&#10;    FROM educacao.disciplinas d&#10;    WHERE d.id_origem &#61; cad.curso_origem_id AND cad.id_cloud IS NULL;&#10;    UPDATE educacao.unidades_tematicas ut&#10;    SET curso_cloud_id &#61; d.id_cloud&#10;    FROM educacao.disciplinas d&#10;    WHERE d.id_origem &#61; ut.curso_origem_id AND ut.id_cloud IS NULL;&#10;    UPDATE educacao.etapas_matriz_disciplinas emd&#10;    SET curso_cloud_id &#61; d.id_cloud&#10;    FROM educacao.disciplinas d&#10;    WHERE d.id_origem &#61; emd.curso_origem_id AND emd.id_cloud IS NULL;&#10;    UPDATE educacao.disciplinas_matriculas dm&#10;    SET curso_cloud_id &#61; d.id_cloud&#10;    FROM educacao.disciplinas d&#10;    WHERE d.id_origem &#61; dm.curso_origem_id AND dm.id_cloud IS NULL;&#10;    --- Matriz Curricular&#10;    UPDATE educacao.calendarios_matrizes_curriculares cmc&#10;    SET matriz_curricular_cloud_id &#61; mc.id_cloud&#10;    FROM educacao.matrizes_curriculares mc&#10;    WHERE mc.id_origem &#61; cmc.matriz_curricular_origem_id AND cmc.id_cloud IS NULL;&#10;    UPDATE educacao.historicos_escolares he&#10;    SET matriz_curricular_cloud_id &#61; mc.id_cloud&#10;    FROM educacao.matrizes_curriculares mc&#10;    WHERE mc.id_origem &#61; he.matriz_curricular_origem_id AND he.id_cloud IS NULL;&#10;    --- Etapas de Matrizes&#10;    UPDATE educacao.etapas_matriz_disciplinas emd&#10;    SET etapa_cloud_id &#61; em.id_cloud&#10;    FROM educacao.etapas_matriz em&#10;    WHERE em.id_origem &#61; emd.etapa_origem_id AND emd.id_cloud IS NULL;&#10;&#10;    ---Return---&#10;    RETURN true;&#10;END;</textarea>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="routine.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>
